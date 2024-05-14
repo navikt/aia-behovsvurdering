@@ -1,0 +1,58 @@
+import { Box, BodyLong, Heading } from '@navikt/ds-react';
+import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
+
+import { Sprak } from '../../contexts/sprak';
+import ReadMoreVeileder from './readmore-veileder';
+
+interface BehovvurderingAvklartProps {
+    sprak: Sprak;
+    profilering?: any;
+    behovsvurdering?: any;
+}
+
+const TEKSTER = {
+    nb: {
+        'heading-enig-standard': 'Du har gode muligheter til å komme i jobb uten en veileder eller tiltak fra NAV',
+        'heading-uenig-standard': 'Du har sagt at du ønsker hjelp',
+        'beskrivelse-enig-standard':
+            'Du har ansvar for å aktivt lete etter jobber og å søke på relevante stillinger på egenhånd.',
+        'beskrivelse-uenig-standard': 'Vi vil gjøre en vurdering av ditt bistandsbehov.',
+        'veiledning-enig-standard': 'Gi beskjed i dialogen dersom du likevel har behov for veiledning.',
+        'veiledning-uenig-standard':
+            'Gi beskjed i dialogen dersom du har opplysninger du mener er viktige for vurderingen.',
+        'heading-enig-situasjonsbestemt': 'Dine samhandlingsverktøy mellom deg og din veileder',
+        'heading-uenig-situasjonsbestemt': 'Du har sagt at du vil klare deg selv',
+        'beskrivelse-enig-situasjonsbestemt': 'Dialogen og Aktivitetsplanen bruker du sammen med veilederen din.',
+        'beskrivelse-uenig-situasjonsbestemt': 'Vi vil gjøre en vurdering av ditt bistandsbehov.',
+        'veiledning-enig-situasjonsbestemt': '',
+        'veiledning-uenig-situasjonsbestemt':
+            'Gi beskjed i dialogen dersom du har opplysninger du mener er viktige for vurderingen.',
+        behovForVeiledningLikevel: 'Gi beskjed i dialogen dersom du likevel har behov for veiledning.',
+    },
+};
+
+function BehovsvurderingAvklart(props: BehovvurderingAvklartProps) {
+    const { sprak, profilering, behovsvurdering } = props;
+    const profilertTil = profilering?.profilertTil;
+    const behov = behovsvurdering?.oppfolging;
+    const antattGodeMuligheter = profilering && profilering.profilertTil === 'ANTATT_GODE_MULIGHETER';
+    const tekstnoekkel = antattGodeMuligheter ? 'standard' : 'situasjonsbestemt';
+    const tekst = lagHentTekstForSprak(TEKSTER, sprak);
+    const enig =
+        (profilertTil === 'ANTATT_GODE_MULIGHETER' && behov === 'STANDARD_INNSATS') ||
+        (profilertTil === 'ANTATT_BEHOV_FOR_VEILEDNING' && behov === 'SITUASJONSBESTEMT_INNSATS');
+    const egenvurdering = enig ? 'enig' : 'uenig';
+
+    return (
+        <Box>
+            <Heading level="3" size="small">
+                {tekst(`heading-${egenvurdering}-${tekstnoekkel}`)}
+            </Heading>
+            <BodyLong spacing>{tekst(`beskrivelse-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
+            <BodyLong spacing>{tekst(`veiledning-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
+            <ReadMoreVeileder />
+        </Box>
+    );
+}
+
+export default BehovsvurderingAvklart;
