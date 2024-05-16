@@ -18,15 +18,7 @@ export interface AiaProps {
 }
 
 function AiA(props: AiaProps) {
-    const {
-        arbeidssokerperioder,
-
-        sprak,
-        profilering,
-        moetestoette,
-        behovsvurdering,
-        siste14aVedtak,
-    } = props;
+    const { arbeidssokerperioder, sprak, profilering, moetestoette, behovsvurdering, siste14aVedtak } = props;
 
     const erIkkeAktivArbeidssoker = arbeidssokerperioder.length === 0;
 
