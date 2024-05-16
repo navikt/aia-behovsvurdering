@@ -8,7 +8,7 @@ import { BehovsavklaringKort } from './components/behovsavklaring/behovsavklarin
 import { MoetestoetteRespons } from './contexts/moetestoette';
 import { VedtaksstoetteRespons } from './contexts/vedtaksstoette';
 
-export interface AiaProps {
+export interface BehovsvurderingProps {
     arbeidssokerperioder: ArbeidssokerperioderResponse;
     profilering: ProfileringResponse;
     sprak: Sprak;
@@ -17,7 +17,7 @@ export interface AiaProps {
     siste14aVedtak: VedtaksstoetteRespons;
 }
 
-function AiA(props: AiaProps) {
+function Behovsvurdering(props: BehovsvurderingProps) {
     const { arbeidssokerperioder, sprak, profilering, moetestoette, behovsvurdering, siste14aVedtak } = props;
 
     const erIkkeAktivArbeidssoker = arbeidssokerperioder.length === 0;
@@ -42,4 +42,4 @@ function AiA(props: AiaProps) {
     );
 }
 
-export default AiA;
+export default Behovsvurdering;

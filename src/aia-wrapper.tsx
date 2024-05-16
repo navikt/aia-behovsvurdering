@@ -1,4 +1,4 @@
-import AiA from './aia';
+import Behovsvurdering from './aia';
 import { useArbeidssokerperioder } from './contexts/arbeidssokerperioder';
 import { useProfilering } from './contexts/profilering';
 import { useSprakValg } from './contexts/sprak';
@@ -15,7 +15,7 @@ function AiaWrapper() {
     const { siste14avedtak } = useVedtaksstoette();
 
     return (
-        <AiA
+        <Behovsvurdering
             sprak={sprak}
             profilering={profilering}
             arbeidssokerperioder={arbeidssokerperioder}
