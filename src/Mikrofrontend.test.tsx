@@ -4,13 +4,11 @@ import { setupServer } from 'msw/node';
 import {
     ARBEIDSOKERPERIODER_URL,
     BEHOVSVURDERING_URL,
-    OPPLYSNINGER_OM_ARBEIDSSOKER_URL,
     PROFILERING_URL,
     VEDTAKSSTOETTE_URL,
     MOTESTOTTE_URL,
 } from './urls/api';
 import arbeidssokerperioderMock from './mocks/arbeidssokerperioder-mock';
-import opplysningerOmArbeidssokerMock from './mocks/opplysninger-om-arbeidssoker-mock';
 import Mikrofrontend from './Mikrofrontend';
 import behovsvurderingMock from './mocks/behovsvurdering-mock';
 import vedtaksstoetteMock from './mocks/vedtaksstoette-mock';
@@ -19,9 +17,6 @@ import moetestoetteMock from './mocks/moetestoette-mock';
 const defaultHandlers = [
     http.get(ARBEIDSOKERPERIODER_URL, () => {
         return HttpResponse.json(arbeidssokerperioderMock);
-    }),
-    http.get(`${OPPLYSNINGER_OM_ARBEIDSSOKER_URL}/*`, () => {
-        return HttpResponse.json(opplysningerOmArbeidssokerMock);
     }),
     http.get(`${PROFILERING_URL}/*`, () => {
         return new HttpResponse(null, { status: 204 });
