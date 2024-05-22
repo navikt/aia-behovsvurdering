@@ -1,7 +1,7 @@
 import { ProfileringResponse } from '@navikt/arbeidssokerregisteret-utils';
 import { ArbeidssokerperioderResponse } from '@navikt/arbeidssokerregisteret-utils/dist/models/arbeidssokerperiode';
 import { BehovsvurderingResponse } from './contexts/behovsvurdering';
-import { HGrid } from '@navikt/ds-react';
+import { Box } from '@navikt/ds-react';
 
 import { Sprak } from './contexts/sprak';
 import { BehovsavklaringKort } from './components/behovsavklaring/behovsavklaring-kort';
@@ -27,18 +27,21 @@ function Behovsvurdering(props: BehovsvurderingProps) {
     }
 
     return (
-        <>
-            <HGrid columns={{ xs: 1, sm: 1, md: 2 }} gap={'6'} className={'mb-4'}>
-                <BehovsavklaringKort
-                    sprak={sprak}
-                    profilering={profilering}
-                    behovsvurdering={behovsvurdering}
-                    arbeidssoekerperioder={arbeidssokerperioder}
-                    moetestoette={moetestoette}
-                    siste14aVedtak={siste14aVedtak}
-                />
-            </HGrid>
-        </>
+        <Box
+            background="surface-default"
+            borderRadius="xlarge"
+            borderColor={'border-subtle'}
+            className={'divide-y divide-gray-300'}
+        >
+            <BehovsavklaringKort
+                sprak={sprak}
+                profilering={profilering}
+                behovsvurdering={behovsvurdering}
+                arbeidssoekerperioder={arbeidssokerperioder}
+                moetestoette={moetestoette}
+                siste14aVedtak={siste14aVedtak}
+            />
+        </Box>
     );
 }
 
