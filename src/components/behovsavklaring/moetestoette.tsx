@@ -1,4 +1,5 @@
-import { BodyShort, Button, Heading, Box } from '@navikt/ds-react';
+import { BodyShort, Heading, Box, Link } from '@navikt/ds-react';
+import { ChevronRightIcon } from '@navikt/aksel-icons';
 import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 
 import { Sprak } from '../../contexts/sprak';
@@ -21,16 +22,15 @@ const Moetestoette = (props: MoetestoetteProps) => {
     const tekst = lagHentTekstForSprak(TEKSTER, sprak);
 
     return (
-        <Box>
-            <Heading size="small" level="1">
-                {tekst('tittel')}
-            </Heading>
-            <BodyShort spacing>{tekst('avsnitt1')}</BodyShort>
-            <BodyShort spacing>{tekst('avsnitt2')}</BodyShort>
-            <Button variant="primary" onClick={() => window.location.assign(motestotteLenke)}>
-                Start
-            </Button>
-        </Box>
+        <Link href={motestotteLenke} underline={false} variant="neutral">
+            <Box>
+                <Heading size="small" level="1" className="flex justify-between mb-4 border-b">
+                    <span>{tekst('tittel')}</span> <ChevronRightIcon />
+                </Heading>
+                <BodyShort spacing>{tekst('avsnitt1')}</BodyShort>
+                <BodyShort spacing>{tekst('avsnitt2')}</BodyShort>
+            </Box>
+        </Link>
     );
 };
 
