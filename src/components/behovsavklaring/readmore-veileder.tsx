@@ -1,5 +1,6 @@
 import { BodyShort, ReadMore } from '@navikt/ds-react';
 import { loggAktivitet } from '../../lib/amplitude';
+import { useState } from 'react';
 
 function Innhold() {
     return (
@@ -17,11 +18,19 @@ function Innhold() {
 }
 
 function ReadMoreVeileder() {
+    const [clickedReadMoreHjelp, setClickedReadMore] = useState<boolean>(false);
+
+    const handleClickReadMore = () => {
+        if (!clickedReadMoreHjelp) {
+            loggAktivitet({ aktivitet: 'Trykker på "Readmore: Hva slags hjelp kan du få"' });
+            setClickedReadMore(true);
+        }
+    };
     return (
         <ReadMore
             size="medium"
             header="Hva slags hjelp kan du få fra en veileder?"
-            onClick={() => loggAktivitet({ aktivitet: 'Trykker på "Readmore: Hva slags hjelp kan du få"' })}
+            onClick={() => handleClickReadMore()}
         >
             <Innhold />
         </ReadMore>

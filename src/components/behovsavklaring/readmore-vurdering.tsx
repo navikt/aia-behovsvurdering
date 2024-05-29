@@ -1,12 +1,21 @@
 import { BodyShort, List, ReadMore } from '@navikt/ds-react';
 import { loggAktivitet } from '../../lib/amplitude';
+import { useState } from 'react';
 
 function ReadMoreVurdering() {
+    const [clickedReadMorebehov, setClickedReadMore] = useState<boolean>(false);
+
+    const handleClickReadMore = () => {
+        if (!clickedReadMorebehov) {
+            loggAktivitet({ aktivitet: 'Trykker på "Readmore: Hvordan vurderer vi ditt behov"' });
+            setClickedReadMore(true);
+        }
+    };
     return (
         <ReadMore
             size="medium"
             header="Hvordan vurderer vi ditt behov for veiledning?"
-            onClick={() => loggAktivitet({ aktivitet: 'Trykker på "Readmore: Hvordan vurderer vi ditt behov"' })}
+            onClick={() => handleClickReadMore()}
         >
             <BodyShort>Vår vurdering er basert på:</BodyShort>
             <List as="ul">
