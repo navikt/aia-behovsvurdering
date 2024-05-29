@@ -1,4 +1,5 @@
 import { BodyShort, ReadMore } from '@navikt/ds-react';
+import { loggAktivitet } from '../../lib/amplitude';
 
 function Innhold() {
     return (
@@ -17,7 +18,11 @@ function Innhold() {
 
 function ReadMoreVeileder() {
     return (
-        <ReadMore size="medium" header="Hva slags hjelp kan du få fra en veileder?">
+        <ReadMore
+            size="medium"
+            header="Hva slags hjelp kan du få fra en veileder?"
+            onClick={() => loggAktivitet({ aktivitet: 'Trykker på "Readmore: Hva slags hjelp kan du få"' })}
+        >
             <Innhold />
         </ReadMore>
     );

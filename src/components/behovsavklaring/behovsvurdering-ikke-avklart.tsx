@@ -8,6 +8,7 @@ import { Sprak } from '../../contexts/sprak';
 import ReadMoreVeileder from './readmore-veileder';
 import ReadMoreVurdering from './readmore-vurdering';
 import { ForeslattInnsatsgruppe } from '../../contexts/behovsvurdering';
+import { loggAktivitet } from '../../lib/amplitude';
 
 interface BehovvurderingIkkeAvklartProps {
     sprak: Sprak;
@@ -56,7 +57,6 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
 
     async function onClickBehovForVeiledning(behov: ForeslattInnsatsgruppe) {
         const erStandard = behov === ForeslattInnsatsgruppe.STANDARD_INNSATS;
-
         // Dialogmeldingen skal gjenspeile svarene fra knappevalgene, endres det ene bør det andre også endres
         const dialogmelding =
             tekst(`dialogtekstNavSinVurdering-${tekstnoekkel}`) +
@@ -92,7 +92,10 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
             <BodyLong spacing>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
             <BodyLong spacing>{tekst('veilederKanIkke')}</BodyLong>
             <Button
-                onClick={() => onClickBehovForVeiledning(enigRespons)}
+                onClick={() => {
+                    onClickBehovForVeiledning(enigRespons);
+                    loggAktivitet({ aktivitet: 'Trykker på "Klarer meg uten veileder"' });
+                }}
                 disabled={pendingRequest !== null}
                 loading={pendingRequest === enigRespons}
             >
@@ -100,7 +103,10 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
             </Button>
             <div className="mb-4">
                 <Button
-                    onClick={() => onClickBehovForVeiledning(uenigRespons)}
+                    onClick={() => {
+                        onClickBehovForVeiledning(uenigRespons);
+                        loggAktivitet({ aktivitet: 'Trykker på "Behov for veileder"' });
+                    }}
                     disabled={pendingRequest !== null}
                     loading={pendingRequest === uenigRespons}
                     variant="secondary"

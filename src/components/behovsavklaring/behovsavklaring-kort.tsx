@@ -11,6 +11,8 @@ import { Sprak } from '../../contexts/sprak';
 import Moetestoette from './moetestoette';
 import Behovsvurdering from './behovsvurdering';
 import { VedtaksstoetteRespons } from '../../contexts/vedtaksstoette';
+import { useEffect } from 'react';
+import { loggVisning } from '../../lib/amplitude';
 
 export type Avklaringstype = 'behovsvurdering' | 'moetestoette';
 
@@ -57,6 +59,10 @@ function BehovsavklaringKort(props: BehovsavklaringProps) {
     if (!erProfilertTil || (!skalHaBehovsvurdering && !skalHaMoetestoette)) {
         return null;
     }
+
+    useEffect(() => {
+        loggVisning({ viser: 'BehovsvurderingKort' });
+    }, []);
 
     return (
         <Box background="surface-default" padding="4" borderRadius="xlarge">

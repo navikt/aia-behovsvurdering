@@ -9,6 +9,7 @@ import { VedtaksstoetteProvider } from './contexts/vedtaksstoette';
 
 import AiaWrapper from './aia-wrapper';
 import './index.css';
+import { initAmplitude } from './lib/amplitude';
 
 function Mikrofrontend() {
     const [valgtSprak, setValgtSprak] = useState<SprakValg.State>(SprakValg.initialState);
@@ -16,6 +17,10 @@ function Mikrofrontend() {
     useEffect(() => {
         setValgtSprak(SprakValg.hentSprakValgFraUrl);
     }, [window.location.href]);
+
+    useEffect(() => {
+        initAmplitude();
+    }, []);
 
     return (
         <SprakValg.SprakContext.Provider value={valgtSprak}>
