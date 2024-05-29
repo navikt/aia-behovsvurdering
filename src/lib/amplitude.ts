@@ -30,7 +30,7 @@ export const initAmplitude = async () => {
     }
 };
 
-type VisningsData = { viser: 'BehovsvurderingKort' };
+export type VisningsData = { viser: 'BehovsvurderingKort' };
 type AktivitetData =
     | { aktivitet: 'Trykker på "Behov for veileder"' }
     | { aktivitet: 'Trykker på "Klarer meg uten veileder"' }

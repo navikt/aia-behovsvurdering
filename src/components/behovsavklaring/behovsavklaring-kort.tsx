@@ -11,8 +11,7 @@ import { Sprak } from '../../contexts/sprak';
 import Moetestoette from './moetestoette';
 import Behovsvurdering from './behovsvurdering';
 import { VedtaksstoetteRespons } from '../../contexts/vedtaksstoette';
-import { useEffect } from 'react';
-import { loggVisning } from '../../lib/amplitude';
+import LoggInViewport from '../logg-in-viewport';
 
 export type Avklaringstype = 'behovsvurdering' | 'moetestoette';
 
@@ -60,10 +59,6 @@ function BehovsavklaringKort(props: BehovsavklaringProps) {
         return null;
     }
 
-    useEffect(() => {
-        loggVisning({ viser: 'BehovsvurderingKort' });
-    }, []);
-
     return (
         <Box background="surface-default" padding="4" borderRadius="xlarge">
             {avklaringstype === 'behovsvurdering' ? (
@@ -76,6 +71,7 @@ function BehovsavklaringKort(props: BehovsavklaringProps) {
             ) : (
                 <Moetestoette sprak={sprak} />
             )}
+            <LoggInViewport data={{ viser: 'BehovsvurderingKort' }} />
         </Box>
     );
 }
