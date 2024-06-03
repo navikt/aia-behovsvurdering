@@ -28,7 +28,9 @@ const useFeatures = () => {
         }
     };
 
-    fetchFeatures();
+    useEffect(() => {
+        fetchFeatures();
+    }, []);
 
     return {
         isLoading,
