@@ -6,8 +6,6 @@ import profileringMock from '../../mocks/profilering-mock';
 import behovsvurderingMock from '../../mocks/behovsvurdering-mock';
 import moetestoetteMock from '../../mocks/moetestoette-mock';
 import arbeidssokerperioderMock from '../../mocks/arbeidssokerperioder-mock';
-import vedtaksstoetteMock from '../../mocks/vedtaksstoette-mock';
-import { VedtaksstoetteRespons } from '../../contexts/vedtaksstoette';
 
 const meta = {
     title: 'Komponenter/Behovsavklaring',
@@ -28,7 +26,6 @@ export const Behovsavklaringskomponent: Story = {
         behovsvurdering: behovsvurderingMock as any,
         moetestoette: moetestoetteMock as any,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
-        siste14aVedtak: vedtaksstoetteMock as VedtaksstoetteRespons,
     },
 };
 
@@ -44,7 +41,6 @@ export const BehovsvurderingIkkeAvklartStandard: Story = {
         behovsvurdering: null,
         moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
-        siste14aVedtak: null,
     },
 };
 
@@ -60,7 +56,6 @@ export const BehovsvurderingAvklartStandard: Story = {
         behovsvurdering: behovsvurderingMock,
         moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
-        siste14aVedtak: null,
     },
 };
 
@@ -76,7 +71,6 @@ export const BehovsvurderingIkkeAvklartSituasjonsbestemt: Story = {
         behovsvurdering: null,
         moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
-        siste14aVedtak: null,
     },
 };
 
@@ -92,7 +86,6 @@ export const BehovsvurderingAvklartSituasjonsbestemt: Story = {
         behovsvurdering: behovsvurderingMock,
         moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
-        siste14aVedtak: null,
     },
 };
 
@@ -108,6 +101,5 @@ export const Møtestøtte: Story = {
         behovsvurdering: null,
         moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
-        siste14aVedtak: null,
     },
 };

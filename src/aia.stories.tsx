@@ -28,7 +28,6 @@ export const Arbeidssøker: Story = {
         arbeidssokerperioder: arbeidssokerperioderMock as any,
         behovsvurdering: null,
         moetestoette: moetestoetteMock as any,
-        siste14aVedtak: [] as any,
     },
 };
 
@@ -39,6 +38,5 @@ export const ErPermittert: Story = {
         arbeidssokerperioder: arbeidssokerperioderMock as any,
         behovsvurdering: behovsvurderingMock as any,
         moetestoette: moetestoetteMock as any,
-        siste14aVedtak: [] as any,
     },
 };

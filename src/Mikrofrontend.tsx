@@ -5,7 +5,6 @@ import { ArbeidssokerperioderProvider } from './contexts/arbeidssokerperioder';
 import { ProfileringProvider } from './contexts/profilering';
 import { BehovsvurderingProvider } from './contexts/behovsvurdering';
 import { MoetestoetteProvider } from './contexts/moetestoette';
-import { VedtaksstoetteProvider } from './contexts/vedtaksstoette';
 
 import AiaWrapper from './aia-wrapper';
 import './index.css';
@@ -59,9 +58,7 @@ function Mikrofrontend() {
                 <ProfileringProvider>
                     <BehovsvurderingProvider>
                         <MoetestoetteProvider>
-                            <VedtaksstoetteProvider>
-                                <AiaWrapper />
-                            </VedtaksstoetteProvider>
+                            <AiaWrapper />
                         </MoetestoetteProvider>
                     </BehovsvurderingProvider>
                 </ProfileringProvider>

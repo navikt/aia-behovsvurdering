@@ -10,7 +10,6 @@ import { Sprak } from '../../contexts/sprak';
 
 import Moetestoette from './moetestoette';
 import Behovsvurdering from './behovsvurdering';
-import { VedtaksstoetteRespons } from '../../contexts/vedtaksstoette';
 import LoggInViewport from '../logg-in-viewport';
 
 export type Avklaringstype = 'behovsvurdering' | 'moetestoette';
@@ -21,13 +20,12 @@ export interface BehovsavklaringProps {
     behovsvurdering?: any;
     moetestoette?: any;
     arbeidssoekerperioder: ArbeidssokerperioderResponse;
-    siste14aVedtak: VedtaksstoetteRespons;
 }
 
 const LANSERINGSDATO_MOTESTOTTE = new Date('2020-03-12');
 
 function BehovsavklaringKort(props: BehovsavklaringProps) {
-    const { sprak, profilering, behovsvurdering, arbeidssoekerperioder, siste14aVedtak } = props;
+    const { sprak, profilering, behovsvurdering, arbeidssoekerperioder } = props;
     const sisteProfilering = hentSisteProfilering(profilering);
     const sisteArbeidssoekerperiode = hentSisteArbeidssokerPeriode(arbeidssoekerperioder);
     const erProfilertTil = sisteProfilering?.profilertTil;
@@ -38,12 +36,6 @@ function BehovsavklaringKort(props: BehovsavklaringProps) {
         sisteArbeidssoekerperiode.startet &&
         new Date(sisteArbeidssoekerperiode.startet.tidspunkt) > LANSERINGSDATO_MOTESTOTTE;
 
-    const har14aVedtakEtterSistePeriodestart =
-        siste14aVedtak &&
-        harAktivArbeidssoekerPeriode &&
-        sisteArbeidssoekerperiode.startet &&
-        new Date(sisteArbeidssoekerperiode.startet.tidspunkt) < new Date(siste14aVedtak.fattetDato);
-
     const skalHaMoetestoette = erProfilertTil === 'OPPGITT_HINDRINGER' && periodeStartetEtterLanseringAvMoetestoette;
 
     const skalHaBehovsvurdering =
@@ -52,8 +44,6 @@ function BehovsavklaringKort(props: BehovsavklaringProps) {
     const avklaringstype = skalHaMoetestoette ? 'moetestoette' : 'behovsvurdering';
 
     if (!harAktivArbeidssoekerPeriode) return null;
-
-    if (har14aVedtakEtterSistePeriodestart) return null;
 
     if (!erProfilertTil || (!skalHaBehovsvurdering && !skalHaMoetestoette)) {
         return null;

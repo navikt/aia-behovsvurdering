@@ -4,7 +4,6 @@ import { useProfilering } from './contexts/profilering';
 import { useSprakValg } from './contexts/sprak';
 import { useBehovsvurdering } from './contexts/behovsvurdering';
 import { useMoetestoette } from './contexts/moetestoette';
-import { useVedtaksstoette } from './contexts/vedtaksstoette';
 
 function AiaWrapper() {
     const { arbeidssokerperioder } = useArbeidssokerperioder();
@@ -12,7 +11,6 @@ function AiaWrapper() {
     const { sprak } = useSprakValg();
     const { behovForVeiledning } = useBehovsvurdering();
     const { moetestoette } = useMoetestoette();
-    const { siste14avedtak } = useVedtaksstoette();
 
     return (
         <Behovsvurdering
@@ -21,7 +19,6 @@ function AiaWrapper() {
             arbeidssokerperioder={arbeidssokerperioder}
             behovsvurdering={behovForVeiledning}
             moetestoette={moetestoette}
-            siste14aVedtak={siste14avedtak}
         />
     );
 }
