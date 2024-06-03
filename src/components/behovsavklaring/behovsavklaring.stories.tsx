@@ -6,6 +6,8 @@ import profileringMock from '../../mocks/profilering-mock';
 import behovsvurderingMock from '../../mocks/behovsvurdering-mock';
 import moetestoetteMock from '../../mocks/moetestoette-mock';
 import arbeidssokerperioderMock from '../../mocks/arbeidssokerperioder-mock';
+import { http, HttpResponse } from 'msw';
+import { BEHOVSVURDERING_URL, OPPRETT_DIALOG_URL } from '../../urls/api';
 
 const meta = {
     title: 'Komponenter/Behovsavklaring',
@@ -13,6 +15,19 @@ const meta = {
     decorators: [],
     tags: ['autodocs'],
     args: {},
+    parameters: {
+        msw: {
+            handlers: [
+                http.post(OPPRETT_DIALOG_URL, () => HttpResponse.json({ id: '1234' })),
+                http.post(BEHOVSVURDERING_URL, () =>
+                    HttpResponse.json({
+                        dato: new Date().toISOString().substring(0, 10),
+                        oppfolging: 'STANDARD_INNSATS',
+                    }),
+                ),
+            ],
+        },
+    },
 } satisfies Meta<typeof BehovsavklaringKort>;
 
 export default meta;
