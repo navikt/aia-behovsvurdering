@@ -85,39 +85,41 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
     if (!profilertTil) return null;
 
     return (
-        <Box>
+        <Box className={'divide-y divide-gray-300'}>
             <Heading level="3" size="small">
                 {tekst(`heading-${tekstnoekkel}`)}
             </Heading>
-            <BodyLong spacing>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
-            <BodyLong spacing>{tekst('veilederKanIkke')}</BodyLong>
-            <Button
-                onClick={() => {
-                    onClickBehovForVeiledning(enigRespons);
-                    loggAktivitet({ aktivitet: 'Trykker på "Klarer meg uten veileder"' });
-                }}
-                disabled={pendingRequest !== null}
-                loading={pendingRequest === enigRespons}
-            >
-                {tekst(`svarEnigKnappetekst-${tekstnoekkel}`)}
-            </Button>
-            <div className="mb-4">
+            <div>
+                <BodyLong spacing>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
+                <BodyLong spacing>{tekst('veilederKanIkke')}</BodyLong>
                 <Button
                     onClick={() => {
-                        onClickBehovForVeiledning(uenigRespons);
-                        loggAktivitet({ aktivitet: 'Trykker på "Behov for veileder"' });
+                        onClickBehovForVeiledning(enigRespons);
+                        loggAktivitet({ aktivitet: 'Trykker på "Klarer meg uten veileder"' });
                     }}
                     disabled={pendingRequest !== null}
-                    loading={pendingRequest === uenigRespons}
-                    variant="secondary"
-                    className="mt-4"
+                    loading={pendingRequest === enigRespons}
                 >
-                    {tekst(`svarUenigKnappetekst-${tekstnoekkel}`)}
+                    {tekst(`svarEnigKnappetekst-${tekstnoekkel}`)}
                 </Button>
-            </div>
+                <div className="mb-4">
+                    <Button
+                        onClick={() => {
+                            onClickBehovForVeiledning(uenigRespons);
+                            loggAktivitet({ aktivitet: 'Trykker på "Behov for veileder"' });
+                        }}
+                        disabled={pendingRequest !== null}
+                        loading={pendingRequest === uenigRespons}
+                        variant="secondary"
+                        className="mt-4"
+                    >
+                        {tekst(`svarUenigKnappetekst-${tekstnoekkel}`)}
+                    </Button>
+                </div>
 
-            <ReadMoreVeileder />
-            <ReadMoreVurdering />
+                <ReadMoreVeileder />
+                <ReadMoreVurdering />
+            </div>
         </Box>
     );
 }

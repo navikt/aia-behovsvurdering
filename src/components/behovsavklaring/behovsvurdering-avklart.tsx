@@ -20,9 +20,10 @@ const TEKSTER = {
         'veiledning-enig-standard': 'Gi beskjed i dialogen dersom du likevel har behov for veiledning.',
         'veiledning-uenig-standard':
             'Gi beskjed i dialogen dersom du har opplysninger du mener er viktige for vurderingen.',
-        'heading-enig-situasjonsbestemt': 'Dine samhandlingsverktøy mellom deg og din veileder',
+        'heading-enig-situasjonsbestemt': 'Du har sagt at du ønsker hjelp',
         'heading-uenig-situasjonsbestemt': 'Du har sagt at du vil klare deg selv',
-        'beskrivelse-enig-situasjonsbestemt': 'Dialogen og Aktivitetsplanen bruker du sammen med veilederen din.',
+        'beskrivelse-enig-situasjonsbestemt':
+            'Dine samhandlingsverktøy mellom deg og din veileder er Dialogen og Aktivitetsplanen.',
         'beskrivelse-uenig-situasjonsbestemt': 'Vi vil gjøre en vurdering av ditt bistandsbehov.',
         'veiledning-enig-situasjonsbestemt': '',
         'veiledning-uenig-situasjonsbestemt':
@@ -44,13 +45,15 @@ function BehovsvurderingAvklart(props: BehovvurderingAvklartProps) {
     const egenvurdering = enig ? 'enig' : 'uenig';
 
     return (
-        <Box>
-            <Heading level="3" size="small">
+        <Box className={'divide-y divide-gray-300'}>
+            <Heading level="2" size="small">
                 {tekst(`heading-${egenvurdering}-${tekstnoekkel}`)}
             </Heading>
-            <BodyLong spacing>{tekst(`beskrivelse-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
-            <BodyLong spacing>{tekst(`veiledning-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
-            <ReadMoreVeileder />
+            <div>
+                <BodyLong spacing>{tekst(`beskrivelse-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
+                <BodyLong spacing>{tekst(`veiledning-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
+                <ReadMoreVeileder />
+            </div>
         </Box>
     );
 }
