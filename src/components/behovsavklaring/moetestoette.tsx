@@ -1,9 +1,11 @@
-import { BodyShort, Heading, Box, Link } from '@navikt/ds-react';
+import { BodyShort, Box, Heading, Link } from '@navikt/ds-react';
 import { ChevronRightIcon } from '@navikt/aksel-icons';
 import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 
 import { Sprak } from '../../contexts/sprak';
 import { motestotteLenke } from '../../urls';
+
+import styles from './moetestoette.module.css';
 
 interface MoetestoetteProps {
     sprak: Sprak;
@@ -22,13 +24,20 @@ const Moetestoette = (props: MoetestoetteProps) => {
     const tekst = lagHentTekstForSprak(TEKSTER, sprak);
 
     return (
-        <Link href={motestotteLenke} underline={false} variant="neutral">
-            <Box>
-                <Heading size="small" level="1" className="flex justify-between mb-4 border-b">
-                    <span>{tekst('tittel')}</span> <ChevronRightIcon />
+        <Link href={motestotteLenke} variant="neutral" className={styles.link}>
+            <Box
+                background="surface-default"
+                borderRadius="xlarge"
+                borderColor={'border-subtle'}
+                className={`divide-y divide-gray-300 ${styles.moetestotteBox}`}
+            >
+                <Heading size="small" level="2" className="flex items-center justify-between pt-4 pb-3 px-5">
+                    {tekst('tittel')} <ChevronRightIcon className={styles.chevron} />
                 </Heading>
-                <BodyShort spacing>{tekst('avsnitt1')}</BodyShort>
-                <BodyShort spacing>{tekst('avsnitt2')}</BodyShort>
+                <section className={'py-4 px-6'}>
+                    <BodyShort spacing>{tekst('avsnitt1')}</BodyShort>
+                    <BodyShort spacing>{tekst('avsnitt2')}</BodyShort>
+                </section>
             </Box>
         </Link>
     );

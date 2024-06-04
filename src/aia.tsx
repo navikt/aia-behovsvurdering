@@ -1,7 +1,6 @@
 import { ProfileringResponse } from '@navikt/arbeidssokerregisteret-utils';
 import { ArbeidssokerperioderResponse } from '@navikt/arbeidssokerregisteret-utils/dist/models/arbeidssokerperiode';
 import { BehovsvurderingResponse } from './contexts/behovsvurdering';
-import { Box } from '@navikt/ds-react';
 
 import { Sprak } from './contexts/sprak';
 import { BehovsavklaringKort } from './components/behovsavklaring/behovsavklaring-kort';
@@ -25,20 +24,13 @@ function Behovsvurdering(props: BehovsvurderingProps) {
     }
 
     return (
-        <Box
-            background="surface-default"
-            borderRadius="xlarge"
-            borderColor={'border-subtle'}
-            className={'divide-y divide-gray-300'}
-        >
-            <BehovsavklaringKort
-                sprak={sprak}
-                profilering={profilering}
-                behovsvurdering={behovsvurdering}
-                arbeidssoekerperioder={arbeidssokerperioder}
-                moetestoette={moetestoette}
-            />
-        </Box>
+        <BehovsavklaringKort
+            sprak={sprak}
+            profilering={profilering}
+            behovsvurdering={behovsvurdering}
+            arbeidssoekerperioder={arbeidssokerperioder}
+            moetestoette={moetestoette}
+        />
     );
 }
 

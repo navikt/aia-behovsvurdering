@@ -1,4 +1,4 @@
-import { Box, BodyLong, Heading } from '@navikt/ds-react';
+import { BodyLong, Box, Heading } from '@navikt/ds-react';
 import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 
 import { Sprak } from '../../contexts/sprak';
@@ -45,11 +45,16 @@ function BehovsvurderingAvklart(props: BehovvurderingAvklartProps) {
     const egenvurdering = enig ? 'enig' : 'uenig';
 
     return (
-        <Box className={'divide-y divide-gray-300 space-y-4'}>
-            <Heading level="2" size="small">
+        <Box
+            background="surface-default"
+            borderRadius="xlarge"
+            borderColor={'border-subtle'}
+            className={'divide-y divide-gray-300'}
+        >
+            <Heading level="2" size="small" className={'pt-4 pb-3 px-5'}>
                 {tekst(`heading-${egenvurdering}-${tekstnoekkel}`)}
             </Heading>
-            <div>
+            <div className={'py-4 px-6'}>
                 <BodyLong className={'mt-4'}>{tekst(`beskrivelse-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
                 <BodyLong spacing>{tekst(`veiledning-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
                 <ReadMoreVeileder />

@@ -2,12 +2,11 @@ import { Box, BodyLong, Button, Heading, Alert } from '@navikt/ds-react';
 import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 import { useState } from 'react';
 
-import { useBehovsvurdering } from '../../contexts/behovsvurdering';
+import { ForeslattInnsatsgruppe, useBehovsvurdering } from '../../contexts/behovsvurdering';
 
 import { Sprak } from '../../contexts/sprak';
 import ReadMoreVeileder from './readmore-veileder';
 import ReadMoreVurdering from './readmore-vurdering';
-import { ForeslattInnsatsgruppe } from '../../contexts/behovsvurdering';
 import { loggAktivitet } from '../../lib/amplitude';
 
 interface BehovvurderingIkkeAvklartProps {
@@ -89,11 +88,16 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
     if (!profilertTil) return null;
 
     return (
-        <Box className={'divide-y divide-gray-300 space-y-4'}>
-            <Heading level="3" size="small">
+        <Box
+            background="surface-default"
+            borderRadius="xlarge"
+            borderColor={'border-subtle'}
+            className={'divide-y divide-gray-300'}
+        >
+            <Heading level="2" size="small" className={'pt-4 pb-3 px-5'}>
                 {tekst(`heading-${tekstnoekkel}`)}
             </Heading>
-            <div>
+            <div className={'py-4 px-6'}>
                 <BodyLong className={'mt-4'}>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
                 <BodyLong spacing>{tekst('veilederKanIkke')}</BodyLong>
                 <Button

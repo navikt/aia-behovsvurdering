@@ -16,6 +16,9 @@ const meta = {
     tags: ['autodocs'],
     args: {},
     parameters: {
+        backgrounds: {
+            default: 'dark',
+        },
         msw: {
             handlers: [
                 http.post(OPPRETT_DIALOG_URL, () => HttpResponse.json({ id: '1234' })),

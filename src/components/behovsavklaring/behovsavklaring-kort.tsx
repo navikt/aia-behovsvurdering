@@ -1,9 +1,8 @@
-import { Box } from '@navikt/ds-react';
 import {
-    ProfileringResponse,
-    hentSisteProfilering,
-    hentSisteArbeidssokerPeriode,
     ArbeidssokerperioderResponse,
+    hentSisteArbeidssokerPeriode,
+    hentSisteProfilering,
+    ProfileringResponse,
 } from '@navikt/arbeidssokerregisteret-utils';
 
 import { Sprak } from '../../contexts/sprak';
@@ -50,7 +49,7 @@ function BehovsavklaringKort(props: BehovsavklaringProps) {
     }
 
     return (
-        <Box background="surface-default" padding="4" borderRadius="xlarge">
+        <>
             {avklaringstype === 'behovsvurdering' ? (
                 <Behovsvurdering
                     sprak={sprak}
@@ -62,7 +61,7 @@ function BehovsavklaringKort(props: BehovsavklaringProps) {
                 <Moetestoette sprak={sprak} />
             )}
             <LoggInViewport data={{ viser: 'BehovsvurderingKort' }} />
-        </Box>
+        </>
     );
 }
 
