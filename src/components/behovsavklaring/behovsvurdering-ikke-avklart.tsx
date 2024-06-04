@@ -127,7 +127,7 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
 
                 {visFeilmelding && (
                     <Alert variant="error" className={'mb-4'}>
-                        Vi klarte ikke lagre svaret ditt prøv igjen om et minutt.
+                        Vi klarte ikke lagre svaret ditt prøv igjen om et par minutt.
                     </Alert>
                 )}
                 <ReadMoreVeileder />
