@@ -96,11 +96,6 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
             <div>
                 <BodyLong className={'mt-4'}>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
                 <BodyLong spacing>{tekst('veilederKanIkke')}</BodyLong>
-                {visFeilmelding && (
-                    <Alert variant="warning" className={'mb-4'}>
-                        Vi klarte ikke lagre svaret ditt prøv igjen om et minutt.
-                    </Alert>
-                )}
                 <Button
                     onClick={() => {
                         onClickBehovForVeiledning(enigRespons);
@@ -126,6 +121,11 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
                     </Button>
                 </div>
 
+                {visFeilmelding && (
+                    <Alert variant="error" className={'mb-4'}>
+                        Vi klarte ikke lagre svaret ditt prøv igjen om et minutt.
+                    </Alert>
+                )}
                 <ReadMoreVeileder />
                 <ReadMoreVurdering />
             </div>
