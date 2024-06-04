@@ -45,12 +45,12 @@ function BehovsvurderingAvklart(props: BehovvurderingAvklartProps) {
     const egenvurdering = enig ? 'enig' : 'uenig';
 
     return (
-        <Box className={'divide-y divide-gray-300'}>
+        <Box className={'divide-y divide-gray-300 space-y-4'}>
             <Heading level="2" size="small">
                 {tekst(`heading-${egenvurdering}-${tekstnoekkel}`)}
             </Heading>
             <div>
-                <BodyLong spacing>{tekst(`beskrivelse-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
+                <BodyLong className={'mt-4'}>{tekst(`beskrivelse-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
                 <BodyLong spacing>{tekst(`veiledning-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
                 <ReadMoreVeileder />
             </div>

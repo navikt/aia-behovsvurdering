@@ -85,12 +85,12 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
     if (!profilertTil) return null;
 
     return (
-        <Box className={'divide-y divide-gray-300'}>
+        <Box className={'divide-y divide-gray-300 space-y-4'}>
             <Heading level="3" size="small">
                 {tekst(`heading-${tekstnoekkel}`)}
             </Heading>
             <div>
-                <BodyLong spacing>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
+                <BodyLong className={'mt-4'}>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
                 <BodyLong spacing>{tekst('veilederKanIkke')}</BodyLong>
                 <Button
                     onClick={() => {
