@@ -1,4 +1,4 @@
-import { Box, BodyLong, Button, Heading } from '@navikt/ds-react';
+import { Box, BodyLong, Button, Heading, Alert } from '@navikt/ds-react';
 import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
 import { useState } from 'react';
 
@@ -41,6 +41,8 @@ const TEKSTER = {
 
 function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
     const [pendingRequest, settPendingRequest] = useState<ForeslattInnsatsgruppe | null>(null);
+    const [visFeilmelding, settVisFeilmelding] = useState<boolean>(false);
+
     const { lagreBehovsvurdering } = useBehovsvurdering();
     const { sprak, profilering } = props;
     const profilertTil = profilering?.profilertTil;
@@ -77,6 +79,8 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
                 venterPaaSvarFraNav: !erStandard,
                 profileringId,
             });
+        } catch (error) {
+            settVisFeilmelding(true);
         } finally {
             settPendingRequest(null);
         }
@@ -92,6 +96,11 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
             <div>
                 <BodyLong className={'mt-4'}>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
                 <BodyLong spacing>{tekst('veilederKanIkke')}</BodyLong>
+                {visFeilmelding && (
+                    <Alert variant="warning" className={'mb-4'}>
+                        Vi klarte ikke lagre svaret ditt prøv igjen om et minutt.
+                    </Alert>
+                )}
                 <Button
                     onClick={() => {
                         onClickBehovForVeiledning(enigRespons);
