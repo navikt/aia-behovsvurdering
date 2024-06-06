@@ -50,10 +50,10 @@ function logAmplitudeEvent(eventName: string, data: EventData) {
 
 export function loggVisning(data: VisningsData) {
     const eventData = data || ({} as EventData);
-    logAmplitudeEvent('aia-min-side.visning', eventData);
+    logAmplitudeEvent('aia-behovsvurdering.visning', eventData);
 }
 
 export function loggAktivitet(data: AktivitetData) {
     const eventData = data || ({} as EventData);
-    logAmplitudeEvent('aia-min-side.aktivitet', eventData);
+    logAmplitudeEvent('aia-behovsvurdering.aktivitet', eventData);
 }
