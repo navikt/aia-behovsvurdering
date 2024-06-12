@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 import fetcher from '../lib/http';
-import { BEHOVSVURDERING_URL, OPPRETT_DIALOG_URL } from '../urls/api';
+import { BEHOVSVURDERING_URL } from '../urls/api';
 
 export enum ForeslattInnsatsgruppe {
     STANDARD_INNSATS = 'STANDARD_INNSATS',
@@ -34,24 +34,24 @@ export const BehovsvurderingContext = createContext<BehovsvurderingProviderType>
     lagreBehovsvurdering: () => Promise.resolve(),
 });
 
-async function opprettDialog(data: {
-    tekst?: string;
-    overskrift?: string;
-    venterPaaSvarFraNav?: boolean;
-}): Promise<null | { id: string }> {
-    if (!data.tekst && !data.overskrift) {
-        return Promise.resolve(null);
-    }
-
-    return fetcher(OPPRETT_DIALOG_URL, {
-        method: 'POST',
-        body: JSON.stringify({
-            tekst: data.tekst,
-            overskrift: data.overskrift,
-            venterPaaSvarFraNav: data.venterPaaSvarFraNav,
-        }),
-    });
-}
+// async function opprettDialog(data: {
+//     tekst?: string;
+//     overskrift?: string;
+//     venterPaaSvarFraNav?: boolean;
+// }): Promise<null | { id: string }> {
+//     if (!data.tekst && !data.overskrift) {
+//         return Promise.resolve(null);
+//     }
+//
+//     return fetcher(OPPRETT_DIALOG_URL, {
+//         method: 'POST',
+//         body: JSON.stringify({
+//             tekst: data.tekst,
+//             overskrift: data.overskrift,
+//             venterPaaSvarFraNav: data.venterPaaSvarFraNav,
+//         }),
+//     });
+// }
 
 function BehovsvurderingProvider(props: { children: ReactNode }) {
     const [behovForVeiledning, settBehovForVeiledning] = useState<BehovsvurderingResponse>(null);
@@ -69,12 +69,12 @@ function BehovsvurderingProvider(props: { children: ReactNode }) {
 
     const lagreBehovsvurdering = async (data: BehovsvurderingRequest) => {
         try {
-            const dialog = await opprettDialog(data);
+            // const dialog = await opprettDialog(data);
             const behov: BehovsvurderingResponse = await fetcher(BEHOVSVURDERING_URL, {
                 method: 'POST',
                 body: JSON.stringify({
                     oppfolging: data.oppfolging,
-                    dialogId: dialog?.id,
+                    // dialogId: dialog?.id,
                     profileringId: data.profileringId,
                 }),
             });
