@@ -36,8 +36,8 @@ type AktivitetData =
     | { aktivitet: 'Trykker på "Klarer meg uten veileder"' }
     | { aktivitet: 'Trykker på "Readmore: Hva slags hjelp kan du få"' }
     | { aktivitet: 'Trykker på "Readmore: Hvordan vurderer vi ditt behov"' };
-
-type EventData = VisningsData | AktivitetData;
+type FeilData = { error: any; info: any };
+type EventData = VisningsData | AktivitetData | FeilData;
 
 function logAmplitudeEvent(eventName: string, data: EventData) {
     const eventData = data || {};
@@ -56,4 +56,9 @@ export function loggVisning(data: VisningsData) {
 export function loggAktivitet(data: AktivitetData) {
     const eventData = data || ({} as EventData);
     logAmplitudeEvent('aia-behovsvurdering.aktivitet', eventData);
+}
+
+export function loggFeil(data: FeilData) {
+    const eventData = data || ({} as EventData);
+    logAmplitudeEvent('aia-behovsvurdering.error', eventData);
 }
