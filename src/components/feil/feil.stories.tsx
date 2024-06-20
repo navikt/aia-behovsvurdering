@@ -1,14 +1,19 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Feil } from './feil';
+import { ErrorBoundaryFeil } from './error-boundary-feil';
 
 const meta = {
     title: 'Komponenter/Feilmelding',
-    component: Feil,
+    component: ErrorBoundaryFeil,
     args: {},
     // tags: ['autodocs'],
-} satisfies Meta<typeof Feil>;
+} satisfies Meta<typeof ErrorBoundaryFeil>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ErrorBoundaryFeil: Story = {};
+export const ErrorBoundaryFeilKomponent: Story = {
+    args: {
+        error: new Error('ErrorBoundaryFeil'),
+        resetErrorBoundary: () => {},
+    },
+};

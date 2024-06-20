@@ -1,4 +1,4 @@
-import { ErrorInfo, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import * as SprakValg from './contexts/sprak';
 import { ArbeidssokerperioderProvider } from './contexts/arbeidssokerperioder';
@@ -8,11 +8,11 @@ import { MoetestoetteProvider } from './contexts/moetestoette';
 
 import AiaWrapper from './aia-wrapper';
 import './index.css';
-import { initAmplitude, loggFeil } from './lib/amplitude';
+import { initAmplitude } from './lib/amplitude';
 import fetcher from './lib/http';
 import { FEATURE_URL } from './urls/api';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Feil } from './components/feil/feil';
+import { ErrorBoundaryFeil } from './components/feil/error-boundary-feil';
 
 export const FEATURE_TOGGLE = 'aia.nedetid';
 
@@ -43,9 +43,7 @@ const useFeatures = () => {
 function Mikrofrontend() {
     const [valgtSprak, setValgtSprak] = useState<SprakValg.State>(SprakValg.initialState);
     const { isLoading, features } = useFeatures();
-    const onError = (error: Error, info: ErrorInfo) => {
-        loggFeil({ error, info });
-    };
+
     useEffect(() => {
         setValgtSprak(SprakValg.hentSprakValgFraUrl);
     }, [window.location.href]);
@@ -63,7 +61,7 @@ function Mikrofrontend() {
     }
 
     return (
-        <ErrorBoundary fallback={<Feil />} onError={onError}>
+        <ErrorBoundary FallbackComponent={ErrorBoundaryFeil}>
             <SprakValg.SprakContext.Provider value={valgtSprak}>
                 <ArbeidssokerperioderProvider>
                     <ProfileringProvider>

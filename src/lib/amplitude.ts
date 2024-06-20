@@ -30,14 +30,17 @@ export const initAmplitude = async () => {
     }
 };
 
-export type VisningsData = { viser: 'BehovsvurderingKort' };
+export type VisningsData =
+    | { viser: 'BehovsvurderingKort' }
+    | { viser: 'ErrorBoundaryFeil'; error: string; stack: string };
+
 type AktivitetData =
     | { aktivitet: 'Trykker på "Behov for veileder"' }
     | { aktivitet: 'Trykker på "Klarer meg uten veileder"' }
     | { aktivitet: 'Trykker på "Readmore: Hva slags hjelp kan du få"' }
     | { aktivitet: 'Trykker på "Readmore: Hvordan vurderer vi ditt behov"' };
-type FeilData = { error: any; info: any };
-type EventData = VisningsData | AktivitetData | FeilData;
+
+type EventData = VisningsData | AktivitetData;
 
 function logAmplitudeEvent(eventName: string, data: EventData) {
     const eventData = data || {};
@@ -56,9 +59,4 @@ export function loggVisning(data: VisningsData) {
 export function loggAktivitet(data: AktivitetData) {
     const eventData = data || ({} as EventData);
     logAmplitudeEvent('aia-behovsvurdering.aktivitet', eventData);
-}
-
-export function loggFeil(data: FeilData) {
-    const eventData = data || ({} as EventData);
-    logAmplitudeEvent('aia-behovsvurdering.error', eventData);
 }
