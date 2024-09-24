@@ -23,7 +23,7 @@ const TEKSTER = {
         'heading-enig-situasjonsbestemt': 'Du har sagt at du ønsker hjelp',
         'heading-uenig-situasjonsbestemt': 'Du har sagt at du vil klare deg selv',
         'beskrivelse-enig-situasjonsbestemt':
-            'Dine samhandlingsverktøy mellom deg og din veileder er Dialogen og Aktivitetsplanen.',
+            'Du kan ha kontakt med din veileder ved å bruke Dialogen og Aktivitetsplanen.',
         'beskrivelse-uenig-situasjonsbestemt': 'Vi vil gjøre en vurdering av ditt bistandsbehov.',
         'veiledning-enig-situasjonsbestemt': '',
         'veiledning-uenig-situasjonsbestemt':
