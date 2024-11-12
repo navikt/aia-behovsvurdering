@@ -4,7 +4,7 @@ Microfrontend for behovsvurdering, arbeidssøkers egen vurdering av behov for ve
 
 ## Demo
 
-[https://aia-behovsvurdering.intern.dev.nav.no/](https://aia-behovsvurdering.intern.dev.nav.no/) (krever naisdevice eller internt nett)
+[https://aia-behovsvurdering.ansatt.dev.nav.no/](https://aia-behovsvurdering.ansatt.dev.nav.no/)
 
 # Utvikling
 
@@ -41,7 +41,7 @@ Ved å prefikse branch-navn med `dev/`, så vil branchen kun deployes i dev.
 git checkout -b dev/<navn på branch>
 ```
 
-For å se løsningen i dev bruker du [https://www.intern.dev.nav.no/minside](https://www.intern.dev.nav.no/minside)
+For å se løsningen i dev bruker du [https://www.ansatt.dev.nav.no/minside](https://www.ansatt.dev.nav.no/minside)
 
 Du vil trenger en syntetisk testbruker for å logge inn.
 Slike brukere kan du opprette på [Dolly](https://dolly.ekstern.dev.nav.no/)

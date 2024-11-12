@@ -8,7 +8,7 @@ metadata:
 spec:
   image: {{image}}
   ingresses:
-    - https://aia-behovsvurdering.intern.dev.nav.no
+    - https://aia-behovsvurdering.ansatt.dev.nav.no
   liveness:
     path: /isAlive
     port: 8080
