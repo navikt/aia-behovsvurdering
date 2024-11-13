@@ -8,7 +8,7 @@ Microfrontend for behovsvurdering, arbeidssøkers egen vurdering av behov for ve
 
 # Utvikling
 
-Bruk Node.js 20 `nvm use` (dersom du bruker nvm til versjonshåndtering av Node.js).
+Bruk Node.js 22 `nvm use` (dersom du bruker nvm til versjonshåndtering av Node.js).
 
 Siden noen av modulene hentes fra GitHubs package registry må du også gjøre litt ekstra konfigurasjon for å kjøre løsningen lokalt.
 
