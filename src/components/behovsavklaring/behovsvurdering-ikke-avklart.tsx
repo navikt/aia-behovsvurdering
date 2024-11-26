@@ -33,8 +33,8 @@ const TEKSTER = {
         'svarUenigKnappetekst-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
         'dialogtekstNavSinVurdering-situasjonsbestemt':
             'NAV sin vurdering: Vi tror du vil trenge hjelp fra en veileder for å nå ditt mål om arbeid.',
-        'dialogtekstSvarEnig-situasjonsbestemt': 'Ja, jeg ønsker hjelp',
-        'dialogtekstSvarUenig-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
+        'dialogtekstSvarEnig-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
+        'dialogtekstSvarUenig-situasjonsbestemt': 'Ja, jeg ønsker hjelp',
         dialogtekstAutomatiskGenerert: 'Dette er en automatisk generert melding',
     },
 };
@@ -49,7 +49,6 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
     const profileringId = profilering?.profileringId;
     const antattGodeMuligheter = profilering && profilering.profilertTil === 'ANTATT_GODE_MULIGHETER';
     const tekstnoekkel = antattGodeMuligheter ? 'standard' : 'situasjonsbestemt';
-    //console.log('tekstnoekkel', tekstnoekkel)
     const tekst = lagHentTekstForSprak(TEKSTER, sprak);
     const enigRespons = antattGodeMuligheter
         ? ForeslattInnsatsgruppe.STANDARD_INNSATS
@@ -59,7 +58,6 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
         : ForeslattInnsatsgruppe.STANDARD_INNSATS;
 
     async function onClickBehovForVeiledning(behov: ForeslattInnsatsgruppe) {
-        //console.log('behov', behov)
         const erStandard = behov === ForeslattInnsatsgruppe.STANDARD_INNSATS;
         // Dialogmeldingen skal gjenspeile svarene fra knappevalgene, endres det ene bør det andre også endres
         const dialogmelding =
