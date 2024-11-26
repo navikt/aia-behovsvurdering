@@ -33,8 +33,9 @@ const TEKSTER = {
         'svarUenigKnappetekst-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
         'dialogtekstNavSinVurdering-situasjonsbestemt':
             'NAV sin vurdering: Vi tror du vil trenge hjelp fra en veileder for å nå ditt mål om arbeid.',
-        'dialogtekstSvarEnig-situasjonsbestemt': 'Ja, jeg ønsker hjelp',
-        'dialogtekstSvarUenig-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
+        'dialogtekstSvarEnig-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
+        'dialogtekstSvarUenig-situasjonsbestemt': 'Ja, jeg ønsker hjelp',
+        dialogtekstAutomatiskGenerert: 'Dette er en automatisk generert melding',
     },
 };
 
