@@ -1,7 +1,6 @@
 import { BodyLong, Box, Heading } from '@navikt/ds-react';
-import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
+import { lagHentTekstForSprak, Sprak } from '@navikt/arbeidssokerregisteret-utils';
 
-import { Sprak } from '../../contexts/sprak';
 import ReadMoreVeileder from './readmore-veileder';
 
 interface BehovvurderingAvklartProps {

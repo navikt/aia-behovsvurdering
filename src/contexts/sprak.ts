@@ -1,6 +1,5 @@
 import { createContext, useContext } from 'react';
-
-export type Sprak = 'nb' | 'en' | 'nn';
+import { Sprak } from '@navikt/arbeidssokerregisteret-utils';
 
 export interface State {
     sprak: Sprak;

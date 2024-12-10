@@ -1,6 +1,4 @@
-import { ArbeidssokerPeriode, Profilering } from '@navikt/arbeidssokerregisteret-utils';
-
-import { Sprak } from '../../contexts/sprak';
+import { ArbeidssokerPeriode, Profilering, Sprak } from '@navikt/arbeidssokerregisteret-utils';
 
 import BehovsvurderingAvklart from './behovsvurdering-avklart';
 import BehovsvurderingIkkeAvklart from './behovsvurdering-ikke-avklart';

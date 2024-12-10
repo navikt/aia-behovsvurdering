@@ -1,8 +1,7 @@
 import { BodyShort, Box, Heading, Link } from '@navikt/ds-react';
 import { ChevronRightIcon } from '@navikt/aksel-icons';
-import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
+import { lagHentTekstForSprak, Sprak } from '@navikt/arbeidssokerregisteret-utils';
 
-import { Sprak } from '../../contexts/sprak';
 import { motestotteLenke } from '../../urls';
 
 import styles from './moetestoette.module.css';

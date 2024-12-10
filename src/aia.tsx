@@ -1,8 +1,7 @@
-import { ProfileringResponse } from '@navikt/arbeidssokerregisteret-utils';
+import { ProfileringResponse, Sprak } from '@navikt/arbeidssokerregisteret-utils';
 import { ArbeidssokerperioderResponse } from '@navikt/arbeidssokerregisteret-utils/dist/models/arbeidssokerperiode';
 import { BehovsvurderingResponse } from './contexts/behovsvurdering';
 
-import { Sprak } from './contexts/sprak';
 import { BehovsavklaringKort } from './components/behovsavklaring/behovsavklaring-kort';
 import { MoetestoetteRespons } from './contexts/moetestoette';
 

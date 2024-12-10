@@ -1,4 +1,5 @@
-import { Sprak } from '../contexts/sprak';
+import { Sprak } from '@navikt/arbeidssokerregisteret-utils';
+
 const norsk = [
     'januar',
     'februar',
@@ -16,6 +17,7 @@ const norsk = [
 const monthNames = {
     nb: norsk,
     nn: norsk,
+    pl: norsk,
     en: [
         'January',
         'February',

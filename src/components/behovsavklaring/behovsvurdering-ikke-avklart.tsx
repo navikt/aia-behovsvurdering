@@ -1,10 +1,9 @@
 import { Box, BodyLong, Button, Heading, Alert } from '@navikt/ds-react';
-import { lagHentTekstForSprak } from '@navikt/arbeidssokerregisteret-utils';
+import { lagHentTekstForSprak, Sprak } from '@navikt/arbeidssokerregisteret-utils';
 import { useState } from 'react';
 
 import { ForeslattInnsatsgruppe, useBehovsvurdering } from '../../contexts/behovsvurdering';
 
-import { Sprak } from '../../contexts/sprak';
 import ReadMoreVeileder from './readmore-veileder';
 import ReadMoreVurdering from './readmore-vurdering';
 import { loggAktivitet } from '../../lib/amplitude';

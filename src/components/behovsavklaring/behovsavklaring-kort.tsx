@@ -3,9 +3,8 @@ import {
     hentSisteArbeidssokerPeriode,
     hentSisteProfilering,
     ProfileringResponse,
+    Sprak,
 } from '@navikt/arbeidssokerregisteret-utils';
-
-import { Sprak } from '../../contexts/sprak';
 
 import Moetestoette from './moetestoette';
 import Behovsvurdering from './behovsvurdering';
