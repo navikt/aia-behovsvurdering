@@ -10,6 +10,7 @@ interface ReadmoreProps {
 
 const TEKSTER = {
     nb: {
+        header: 'Hva slags hjelp kan du få fra en veileder?',
         veiledersOppgaver:
             'Veilederens oppgave er å besvare spørsmål, bistå deg med å søke stillinger og tilby deg hjelp på veien til arbeid.',
         veilederKanIkke:
@@ -32,6 +33,7 @@ function Innhold(props: ReadmoreProps) {
 function ReadMoreVeileder(props: ReadmoreProps) {
     const [clickedReadMoreHjelp, setClickedReadMore] = useState<boolean>(false);
     const { sprak } = props;
+    const tekst = lagHentTekstForSprak(TEKSTER, sprak);
 
     const handleClickReadMore = () => {
         if (!clickedReadMoreHjelp) {
@@ -40,11 +42,7 @@ function ReadMoreVeileder(props: ReadmoreProps) {
         }
     };
     return (
-        <ReadMore
-            size="medium"
-            header="Hva slags hjelp kan du få fra en veileder?"
-            onClick={() => handleClickReadMore()}
-        >
+        <ReadMore size="medium" header={tekst('header')} onClick={() => handleClickReadMore()}>
             <Innhold sprak={sprak} />
         </ReadMore>
     );

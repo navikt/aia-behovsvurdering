@@ -10,9 +10,10 @@ interface ReadmoreProps {
 
 const TEKSTER = {
     nb: {
+        header: 'Hvordan vurderer vi ditt behov for veiledning?',
         tittel: 'Vår vurdering er basert på',
         punkt1: 'dine svar fra registreringen',
-        punkt2: 'opplysningene NAV har om din situasjon',
+        punkt2: 'opplysningene Nav har om din situasjon',
         punkt3: 'det du selv mener',
     },
 };
@@ -29,11 +30,7 @@ function ReadMoreVurdering(props: ReadmoreProps) {
         }
     };
     return (
-        <ReadMore
-            size="medium"
-            header="Hvordan vurderer vi ditt behov for veiledning?"
-            onClick={() => handleClickReadMore()}
-        >
+        <ReadMore size="medium" header={tekst('header')} onClick={() => handleClickReadMore()}>
             <BodyShort>{tekst('tittel')}:</BodyShort>
             <List as="ul">
                 <List.Item>{tekst('punkt1')}</List.Item>
