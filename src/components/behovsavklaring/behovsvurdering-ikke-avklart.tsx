@@ -21,7 +21,7 @@ const TEKSTER = {
         'svarEnigKnappetekst-standard': 'Jeg klarer meg uten veileder',
         'svarUenigKnappetekst-standard': 'Jeg trenger en veileder for å komme i arbeid',
         'dialogtekstNavSinVurdering-standard':
-            'NAV sin vurdering: Vi tror du har gode muligheter til å komme i jobb uten en veileder eller tiltak fra NAV.',
+            'Nav sin vurdering: Vi tror du har gode muligheter til å komme i jobb uten en veileder eller tiltak fra Nav.',
         'dialogtekstSvarEnig-standard': 'Jeg klarer meg uten veileder',
         'dialogtekstSvarUenig-standard': 'Jeg trenger en veileder for å komme i arbeid',
         dialogtekstMinVurdering: 'Min vurdering: ',
@@ -31,7 +31,7 @@ const TEKSTER = {
         'svarEnigKnappetekst-situasjonsbestemt': 'Ja, jeg ønsker hjelp',
         'svarUenigKnappetekst-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
         'dialogtekstNavSinVurdering-situasjonsbestemt':
-            'NAV sin vurdering: Vi tror du vil trenge hjelp fra en veileder for å nå ditt mål om arbeid.',
+            'Nav sin vurdering: Vi tror du vil trenge hjelp fra en veileder for å nå ditt mål om arbeid.',
         'dialogtekstSvarEnig-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
         'dialogtekstSvarUenig-situasjonsbestemt': 'Ja, jeg ønsker hjelp',
         dialogtekstAutomatiskGenerert: 'Dette er en automatisk generert melding',
