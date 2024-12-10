@@ -56,7 +56,7 @@ function BehovsvurderingAvklart(props: BehovvurderingAvklartProps) {
             <div className={'py-4 px-6'}>
                 <BodyLong className={'mt-4'}>{tekst(`beskrivelse-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
                 <BodyLong spacing>{tekst(`veiledning-${egenvurdering}-${tekstnoekkel}`)}</BodyLong>
-                <ReadMoreVeileder />
+                <ReadMoreVeileder sprak={sprak} />
             </div>
         </Box>
     );

@@ -130,8 +130,8 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
                         Vi klarte ikke lagre svaret ditt prøv igjen om et par minutt.
                     </Alert>
                 )}
-                <ReadMoreVeileder />
-                <ReadMoreVurdering />
+                <ReadMoreVeileder sprak={sprak} />
+                <ReadMoreVurdering sprak={sprak} />
             </div>
         </Box>
     );

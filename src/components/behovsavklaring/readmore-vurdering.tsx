@@ -1,9 +1,26 @@
 import { BodyShort, List, ReadMore } from '@navikt/ds-react';
-import { loggAktivitet } from '../../lib/amplitude';
+import { lagHentTekstForSprak, Sprak } from '@navikt/arbeidssokerregisteret-utils';
 import { useState } from 'react';
 
-function ReadMoreVurdering() {
+import { loggAktivitet } from '../../lib/amplitude';
+
+interface ReadmoreProps {
+    sprak: Sprak;
+}
+
+const TEKSTER = {
+    nb: {
+        tittel: 'Vår vurdering er basert på',
+        punkt1: 'dine svar fra registreringen',
+        punkt2: 'opplysningene NAV har om din situasjon',
+        punkt3: 'det du selv mener',
+    },
+};
+
+function ReadMoreVurdering(props: ReadmoreProps) {
     const [clickedReadMorebehov, setClickedReadMore] = useState<boolean>(false);
+    const { sprak } = props;
+    const tekst = lagHentTekstForSprak(TEKSTER, sprak);
 
     const handleClickReadMore = () => {
         if (!clickedReadMorebehov) {
@@ -17,11 +34,11 @@ function ReadMoreVurdering() {
             header="Hvordan vurderer vi ditt behov for veiledning?"
             onClick={() => handleClickReadMore()}
         >
-            <BodyShort>Vår vurdering er basert på:</BodyShort>
+            <BodyShort>{tekst('tittel')}:</BodyShort>
             <List as="ul">
-                <List.Item>dine svar fra registreringen</List.Item>
-                <List.Item>opplysningene NAV har om din situasjon</List.Item>
-                <List.Item>det du selv mener</List.Item>
+                <List.Item>{tekst('punkt1')}</List.Item>
+                <List.Item>{tekst('punkt2')}</List.Item>
+                <List.Item>{tekst('punkt3')}</List.Item>
             </List>
         </ReadMore>
     );

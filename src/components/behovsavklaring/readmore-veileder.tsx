@@ -1,24 +1,37 @@
 import { BodyShort, ReadMore } from '@navikt/ds-react';
-import { loggAktivitet } from '../../lib/amplitude';
+import { lagHentTekstForSprak, Sprak } from '@navikt/arbeidssokerregisteret-utils';
 import { useState } from 'react';
 
-function Innhold() {
+import { loggAktivitet } from '../../lib/amplitude';
+
+interface ReadmoreProps {
+    sprak: Sprak;
+}
+
+const TEKSTER = {
+    nb: {
+        veiledersOppgaver:
+            'Veilederens oppgave er å besvare spørsmål, bistå deg med å søke stillinger og tilby deg hjelp på veien til arbeid.',
+        veilederKanIkke:
+            'Veilederne kan ikke svare på spørsmål om søknad om dagpenger, behandling av dagpengesøknaden, utbetaling av dagpenger eller utfylling av meldekort.',
+    },
+};
+
+function Innhold(props: ReadmoreProps) {
+    const { sprak } = props;
+    const tekst = lagHentTekstForSprak(TEKSTER, sprak);
+
     return (
         <div>
-            <BodyShort spacing>
-                Veilederens oppgave er å besvare spørsmål, bistå deg med å søke stillinger og tilby deg hjelp på veien
-                til arbeid.
-            </BodyShort>
-            <BodyShort spacing>
-                Veilederne kan <strong>ikke</strong> svare på spørsmål om søknad om dagpenger, behandling av
-                dagpengesøknaden, utbetaling av dagpenger eller utfylling av meldekort.
-            </BodyShort>
+            <BodyShort spacing>{tekst('veiledersOppgaver')}</BodyShort>
+            <BodyShort spacing>{tekst('veilederKanIkke')}</BodyShort>
         </div>
     );
 }
 
-function ReadMoreVeileder() {
+function ReadMoreVeileder(props: ReadmoreProps) {
     const [clickedReadMoreHjelp, setClickedReadMore] = useState<boolean>(false);
+    const { sprak } = props;
 
     const handleClickReadMore = () => {
         if (!clickedReadMoreHjelp) {
@@ -32,7 +45,7 @@ function ReadMoreVeileder() {
             header="Hva slags hjelp kan du få fra en veileder?"
             onClick={() => handleClickReadMore()}
         >
-            <Innhold />
+            <Innhold sprak={sprak} />
         </ReadMore>
     );
 }
