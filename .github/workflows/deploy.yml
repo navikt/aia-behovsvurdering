@@ -7,8 +7,48 @@ on:
       - dev/**
 
 jobs:
+  test-storybook:
+    name:  Tester storybook
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: 'read'
+      packages: 'write'
+      id-token: 'write'
+
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout
+
+      - uses: actions/setup-node@v4
+        with:
+          cache: 'npm'
+          node-version: '22.13.0'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@navikt'
+
+      - name: 'Install dependencies'
+        run: npm install --no-save --no-audit --prefer-offline --ignore-scripts --force
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
+
+      - name: 'Run tests'
+        run: 'npm run test:ci'
+       
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Build storybook-static
+        run: npm run build:storybook
+
+      - name: Run test-storybook
+        run: npx concurrently -k -s first -n "SB,TEST" -c "magenta,blue" \
+          "npx http-server storybook-static --port 6006 --silent" \
+          "npx wait-on tcp:127.0.0.1:6006 && npm run test-storybook"
+
   build-cdn:
     name:  Build and upload to CDN
+    needs: test-storybook
     runs-on: ubuntu-latest
 
     permissions:
@@ -35,9 +75,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
 
-      - name: 'Run tests'
-        run: 'npm run test:ci'
-
       - name: 'Build cdn'
         run: 'NODE_ENV=production npm run build:cdn'
 
@@ -61,6 +98,7 @@ jobs:
 
   build-storybook:
     name: Build and upload storybook to nais
+    needs: test-storybook
     runs-on: ubuntu-latest
 
     permissions:
@@ -83,9 +121,6 @@ jobs:
         run: 'npm ci'
         env:
           NODE_AUTH_TOKEN: ${{ secrets.READER_TOKEN }}
-
-      - name: 'Run tests'
-        run: 'npm run test:ci'
 
       - name: 'Build storybook'
         run: 'npm run build:storybook'
