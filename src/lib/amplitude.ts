@@ -1,4 +1,5 @@
 import * as amplitude from '@amplitude/analytics-browser';
+import { getCurrentConsent } from './nav-cookie-consent';
 
 export const isProduction = () => {
     return /https:\/\/www.nav.no\/minside/.test(window.location.href);
@@ -22,7 +23,15 @@ const config = {
     },
 };
 
+const isConsentingToAnalytics = () => {
+    const consent = getCurrentConsent();
+    return consent.consent.analytics;
+};
+
 export const initAmplitude = async () => {
+    if (!isConsentingToAnalytics()) {
+        return;
+    }
     if (!isDevelopment()) {
         amplitude.init(apiKey, undefined, { ...config, serverUrl: apiEndpoint });
     } else {
@@ -43,6 +52,10 @@ type AktivitetData =
 type EventData = VisningsData | AktivitetData;
 
 function logAmplitudeEvent(eventName: string, data: EventData) {
+    if (!isConsentingToAnalytics()) {
+        return;
+    }
+
     const eventData = data || {};
     if (!isDevelopment()) {
         amplitude.logEvent(eventName, { ...eventData });
