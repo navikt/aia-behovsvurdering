@@ -6,5 +6,4 @@ export const AIA_BACKEND = aiaBackendUrl,
     ARBEIDSOKERPERIODER_URL = `${AIA_BACKEND}/arbeidssokerregisteret/v1/arbeidssoekerperioder`,
     BEHOVSVURDERING_URL = `${AIA_BACKEND}/behov-for-veiledning`,
     OPPRETT_DIALOG_URL = `${AIA_BACKEND}/dialog`,
-    PROFILERING_URL = `${AIA_BACKEND}/arbeidssokerregisteret/v1/profilering`,
-    MOTESTOTTE_URL = `${AIA_BACKEND}/vedtakinfo/motestotte`;
+    PROFILERING_URL = `${AIA_BACKEND}/arbeidssokerregisteret/v1/profilering`;

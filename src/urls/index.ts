@@ -19,11 +19,4 @@ const AIA_BACKEND_URL = {
     production: 'https://www.nav.no/aia-backend',
 };
 
-const START_SAMTALE_URL = {
-    local: 'https://pto.ekstern.dev.nav.no/arbeid/start-samtale',
-    development: 'https://pto.ekstern.dev.nav.no/arbeid/start-samtale',
-    production: 'https://nav.no/arbeid/start-samtale',
-};
-
 export const aiaBackendUrl = AIA_BACKEND_URL[getEnvironment()];
-export const motestotteLenke = START_SAMTALE_URL[getEnvironment()];

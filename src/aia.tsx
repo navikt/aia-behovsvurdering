@@ -3,18 +3,16 @@ import { ArbeidssokerperioderResponse } from '@navikt/arbeidssokerregisteret-uti
 import { BehovsvurderingResponse } from './contexts/behovsvurdering';
 
 import { BehovsavklaringKort } from './components/behovsavklaring/behovsavklaring-kort';
-import { MoetestoetteRespons } from './contexts/moetestoette';
 
 export interface BehovsvurderingProps {
     arbeidssokerperioder: ArbeidssokerperioderResponse;
     profilering: ProfileringResponse;
     sprak: Sprak;
     behovsvurdering: BehovsvurderingResponse;
-    moetestoette: MoetestoetteRespons;
 }
 
 function Behovsvurdering(props: BehovsvurderingProps) {
-    const { arbeidssokerperioder, sprak, profilering, moetestoette, behovsvurdering } = props;
+    const { arbeidssokerperioder, sprak, profilering, behovsvurdering } = props;
 
     const erIkkeAktivArbeidssoker = arbeidssokerperioder.length === 0;
 
@@ -28,7 +26,6 @@ function Behovsvurdering(props: BehovsvurderingProps) {
             profilering={profilering}
             behovsvurdering={behovsvurdering}
             arbeidssoekerperioder={arbeidssokerperioder}
-            moetestoette={moetestoette}
         />
     );
 }
