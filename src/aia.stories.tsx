@@ -2,7 +2,6 @@ import { Meta, StoryObj } from '@storybook/react';
 import Behovsvurdering, { BehovsvurderingProps } from './aia';
 import arbeidssokerperioderMock from './mocks/arbeidssokerperioder-mock';
 import profileringMock from './mocks/profilering-mock';
-import moetestoetteMock from './mocks/moetestoette-mock';
 import { http, HttpResponse } from 'msw';
 import { BEHOV_FOR_VEILEDNING_URL, OPPRETT_DIALOG_URL } from './urls/api';
 import { BehovsvurderingProvider, useBehovsvurdering } from './contexts/behovsvurdering';
@@ -53,6 +52,5 @@ export const Arbeidssøker: Story = {
         profilering: profileringMock as any,
         arbeidssokerperioder: arbeidssokerperioderMock as any,
         behovsvurdering: null,
-        moetestoette: moetestoetteMock as any,
     },
 };

@@ -4,7 +4,6 @@ import { ProfileringResponse, ArbeidssokerperioderResponse } from '@navikt/arbei
 import { BehovsavklaringKort } from './behovsavklaring-kort';
 import profileringMock from '../../mocks/profilering-mock';
 import behovsvurderingMock from '../../mocks/behovsvurdering-mock';
-import moetestoetteMock from '../../mocks/moetestoette-mock';
 import arbeidssokerperioderMock from '../../mocks/arbeidssokerperioder-mock';
 import { http, HttpResponse } from 'msw';
 import { BEHOVSVURDERING_URL, OPPRETT_DIALOG_URL } from '../../urls/api';
@@ -42,7 +41,6 @@ export const Behovsavklaringskomponent: Story = {
         sprak: 'nb',
         profilering: profileringMock as ProfileringResponse,
         behovsvurdering: behovsvurderingMock as any,
-        moetestoette: moetestoetteMock as any,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
     },
 };
@@ -57,7 +55,6 @@ export const BehovsvurderingIkkeAvklartStandard: Story = {
             },
         ] as ProfileringResponse,
         behovsvurdering: null,
-        moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
     },
 };
@@ -72,7 +69,6 @@ export const BehovsvurderingAvklartStandard: Story = {
             },
         ] as ProfileringResponse,
         behovsvurdering: behovsvurderingMock,
-        moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
     },
 };
@@ -87,7 +83,6 @@ export const BehovsvurderingIkkeAvklartSituasjonsbestemt: Story = {
             },
         ] as ProfileringResponse,
         behovsvurdering: null,
-        moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
     },
 };
@@ -102,22 +97,6 @@ export const BehovsvurderingAvklartSituasjonsbestemt: Story = {
             },
         ] as ProfileringResponse,
         behovsvurdering: behovsvurderingMock,
-        moetestoette: null,
-        arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
-    },
-};
-
-export const Møtestøtte: Story = {
-    args: {
-        sprak: 'nb',
-        profilering: [
-            {
-                ...profileringMock[0],
-                profilertTil: 'OPPGITT_HINDRINGER',
-            },
-        ] as ProfileringResponse,
-        behovsvurdering: null,
-        moetestoette: null,
         arbeidssoekerperioder: arbeidssokerperioderMock as ArbeidssokerperioderResponse,
     },
 };

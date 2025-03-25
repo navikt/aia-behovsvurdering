@@ -4,7 +4,6 @@ import * as SprakValg from './contexts/sprak';
 import { ArbeidssokerperioderProvider } from './contexts/arbeidssokerperioder';
 import { ProfileringProvider } from './contexts/profilering';
 import { BehovsvurderingProvider } from './contexts/behovsvurdering';
-import { MoetestoetteProvider } from './contexts/moetestoette';
 
 import AiaWrapper from './aia-wrapper';
 import './index.css';
@@ -66,9 +65,7 @@ function Mikrofrontend() {
                 <ArbeidssokerperioderProvider>
                     <ProfileringProvider>
                         <BehovsvurderingProvider>
-                            <MoetestoetteProvider>
-                                <AiaWrapper />
-                            </MoetestoetteProvider>
+                            <AiaWrapper />
                         </BehovsvurderingProvider>
                     </ProfileringProvider>
                 </ArbeidssokerperioderProvider>
