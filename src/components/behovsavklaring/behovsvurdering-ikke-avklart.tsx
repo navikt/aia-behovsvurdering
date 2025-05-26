@@ -100,16 +100,18 @@ function BehovsvurderingIkkeAvklart(props: BehovvurderingIkkeAvklartProps) {
             <div className={'py-4 px-6'}>
                 <BodyLong className={'mt-4'}>{tekst(`beskrivelse-${tekstnoekkel}`)}</BodyLong>
                 <BodyLong spacing>{tekst('veilederKanIkke')}</BodyLong>
-                <Button
-                    onClick={() => {
-                        onClickBehovForVeiledning(enigRespons);
-                        loggAktivitet({ aktivitet: 'Trykker på "Klarer meg uten veileder"' });
-                    }}
-                    disabled={pendingRequest !== null}
-                    loading={pendingRequest === enigRespons}
-                >
-                    {tekst(`svarEnigKnappetekst-${tekstnoekkel}`)}
-                </Button>
+                <div className="mb-4">
+                    <Button
+                        onClick={() => {
+                            onClickBehovForVeiledning(enigRespons);
+                            loggAktivitet({ aktivitet: 'Trykker på "Klarer meg uten veileder"' });
+                        }}
+                        disabled={pendingRequest !== null}
+                        loading={pendingRequest === enigRespons}
+                    >
+                        {tekst(`svarEnigKnappetekst-${tekstnoekkel}`)}
+                    </Button>
+                </div>
                 <div className="mb-4">
                     <Button
                         onClick={() => {
