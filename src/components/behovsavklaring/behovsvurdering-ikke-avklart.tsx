@@ -35,6 +35,7 @@ const TEKSTER = {
         'dialogtekstSvarEnig-situasjonsbestemt': 'Nei, jeg vil gjerne klare meg selv',
         'dialogtekstSvarUenig-situasjonsbestemt': 'Ja, jeg ønsker hjelp',
         dialogtekstAutomatiskGenerert: 'Dette er en automatisk generert melding',
+        behovOverskrift: 'Svar fra behovsvurderingen',
     },
 };
 
