@@ -47,7 +47,7 @@ async function opprettDialog(data: {
         method: 'POST',
         body: JSON.stringify({
             tekst: data.tekst,
-            overskrift: data.overskrift,
+            overskrift: 'Svar fra behovsvurderingen',
             venterPaaSvarFraNav: data.venterPaaSvarFraNav,
         }),
     });
