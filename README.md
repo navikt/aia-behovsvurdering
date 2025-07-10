@@ -2,9 +2,9 @@
 
 Microfrontend for behovsvurdering, arbeidssøkers egen vurdering av behov for veiledning.
 
-## Stroybook
+## Storybook
 
-[https://aia-behovsvurdering.ansatt.dev.nav.no/](https://aia-behovsvurdering.ansatt.dev.nav.no/)
+Storybook for microfrontenden ligger på [https://aia-behovsvurdering.ansatt.dev.nav.no/](https://aia-behovsvurdering.ansatt.dev.nav.no/) (krever tilgang til ansatt.dev.nav.no ingressen)
 
 # Utvikling
 
