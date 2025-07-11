@@ -14,7 +14,7 @@ export const getEnvironment = () => {
 };
 
 const AIA_BACKEND_URL = {
-    local: 'http://localhost:3000/aia-backend',
+    local: '/aia-backend',
     development: 'https://www.ansatt.dev.nav.no/aia-backend',
     production: 'https://www.nav.no/aia-backend',
 };

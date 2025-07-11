@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 import Behovsvurdering, { BehovsvurderingProps } from './aia';
 import arbeidssokerperioderMock from './mocks/arbeidssokerperioder-mock';
 import profileringMock from './mocks/profilering-mock';
 import { http, HttpResponse } from 'msw';
-import { BEHOV_FOR_VEILEDNING_URL, OPPRETT_DIALOG_URL } from './urls/api';
+import { BEHOVSVURDERING_URL, OPPRETT_DIALOG_URL } from './urls/api';
 import { BehovsvurderingProvider, useBehovsvurdering } from './contexts/behovsvurdering';
 
 function BehovsvurderingsWrapper(props: BehovsvurderingProps) {
@@ -29,14 +29,15 @@ const meta = {
         msw: {
             handlers: [
                 http.post(OPPRETT_DIALOG_URL, () => HttpResponse.json({ id: '1234' })),
-                http.post(BEHOV_FOR_VEILEDNING_URL, async ({ request }) => {
+                http.post(BEHOVSVURDERING_URL, async ({ request }) => {
+                    console.log('I POSTEN!');
                     const data = (await request.json()) as any;
                     return HttpResponse.json({
                         dato: new Date().toISOString().substring(0, 10),
                         oppfolging: data.oppfolging,
                     });
                 }),
-                http.get(BEHOV_FOR_VEILEDNING_URL, () => new HttpResponse(null, { status: 204 })),
+                http.get(BEHOVSVURDERING_URL, () => new HttpResponse(null, { status: 204 })),
             ],
         },
     },
