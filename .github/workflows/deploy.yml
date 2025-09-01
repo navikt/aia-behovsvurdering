@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: 'npm'
-          node-version: '22.15.1'
+          node-version: '22.19.0'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@navikt'
 
@@ -66,7 +66,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: 'npm'
-          node-version: '22.15.1'
+          node-version: '22.19.0'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@navikt'
 
@@ -113,7 +113,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           cache: 'npm'
-          node-version: '22.15.1'
+          node-version: '22.19.0'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@navikt'
 
