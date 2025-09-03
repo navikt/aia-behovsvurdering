@@ -32,7 +32,6 @@
     },
     "homepage": "https://github.com/navikt/aia-behovsvurdering/readme",
     "devDependencies": {
-        "@amplitude/analytics-browser": "2.23.5",
         "@chromatic-com/storybook": "4.1.1",
         "@rollup/plugin-terser": "0.4.4",
         "@storybook/addon-a11y": "9.1.3",
