@@ -1,5 +1,5 @@
 import { useInView, defaultFallbackInView } from 'react-intersection-observer';
-import { loggVisning, VisningsData } from '../lib/amplitude';
+import { loggVisning, VisningsData } from '../lib/tracking';
 
 type Props = {
     data: VisningsData;

@@ -7,7 +7,6 @@ import { BehovsvurderingProvider } from './contexts/behovsvurdering';
 
 import AiaWrapper from './aia-wrapper';
 import './index.css';
-import { initAmplitude } from './lib/amplitude';
 import fetcher from './lib/http';
 import { FEATURE_URL } from './urls/api';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -46,10 +45,6 @@ function Mikrofrontend() {
     useEffect(() => {
         setValgtSprak(SprakValg.hentSprakValgFraUrl);
     }, [window.location.href]);
-
-    useEffect(() => {
-        initAmplitude();
-    }, []);
 
     if (isLoading) {
         return null;
