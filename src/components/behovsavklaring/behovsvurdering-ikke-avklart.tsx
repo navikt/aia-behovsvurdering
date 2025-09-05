@@ -6,7 +6,7 @@ import { ForeslattInnsatsgruppe, useBehovsvurdering } from '../../contexts/behov
 
 import ReadMoreVeileder from './readmore-veileder';
 import ReadMoreVurdering from './readmore-vurdering';
-import { loggAktivitet } from '../../lib/amplitude';
+import { loggAktivitet } from '../../lib/tracking';
 
 interface BehovvurderingIkkeAvklartProps {
     sprak: Sprak;

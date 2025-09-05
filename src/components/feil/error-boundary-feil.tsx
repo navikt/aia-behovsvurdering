@@ -1,6 +1,6 @@
 import { Alert } from '@navikt/ds-react';
 import { FallbackProps } from 'react-error-boundary';
-import { loggVisning } from '../../lib/amplitude';
+import { loggVisning } from '../../lib/tracking';
 import { useEffect } from 'react';
 
 export const ErrorBoundaryFeil = (props: FallbackProps) => {
