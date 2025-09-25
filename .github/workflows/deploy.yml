@@ -17,13 +17,13 @@ jobs:
       id-token: 'write'
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         name: Checkout
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           cache: 'npm'
-          node-version: '22.19.0'
+          node-version: '22.20.0'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@navikt'
 
@@ -60,13 +60,13 @@ jobs:
       upload_url: ${{ steps.extract-manifest-url.outputs.upload_url }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         name: Checkout
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           cache: 'npm'
-          node-version: '22.19.0'
+          node-version: '22.20.0'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@navikt'
 
@@ -107,13 +107,13 @@ jobs:
       id-token: 'write'
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         name: Checkout
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
           cache: 'npm'
-          node-version: '22.19.0'
+          node-version: '22.20.0'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@navikt'
 
@@ -166,7 +166,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Deploy
         uses: nais/deploy/actions/deploy@v2
         env:
