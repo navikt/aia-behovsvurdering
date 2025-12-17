@@ -1,5 +1,7 @@
 # aia-behovsvurdering
 
+**DEPRECATED** Mikrofrontend fjernet fra min side, og erstattet av egenvurdering i [arbeidssøkerregisteret](https://github.com/navikt/paw-arbeidssoekerregisteret-for-personbruker)
+
 Microfrontend for behovsvurdering, arbeidssøkers egen vurdering av behov for veiledning.
 
 ## Storybook
